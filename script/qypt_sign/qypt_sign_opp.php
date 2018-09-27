@@ -1,18 +1,16 @@
 <?php
+
 $user_list = [
-    /*    ["num" => "02041601004", "pwd" => "02041601004"],
-        ["num" => "02041601008", "pwd" => "02041601008"],
-        ["num" => "02041601009", "pwd" => "02041601009"],
-        ["num" => "02041601015", "pwd" => "02041601015"],
-        ["num" => "02041601024", "pwd" => "02041601024"],
-        ["num" => "02041601044", "pwd" => "02041601044"],
-        ["num" => "02041601056", "pwd" => "02041601056"],
-      ["num" => "02041601042", "pwd" => "02041601042"],
-    ["num" => "02041601045", "pwd" => "02041601045"],
-        ["num" => "02041601047", "pwd" => "02041601047"],
-    ["num" => "02041601022", "pwd" => "02041601022"],
-        ["num" => "02041601055", "pwd" => "02041601055"],
-    */
+    ["num" => "02041601004", "pwd" => "02041601004"],
+    ["num" => "02041601006", "pwd" => "02041601006"],
+    ["num" => "02041601008", "pwd" => "02041601008"],
+    ["num" => "02041601009", "pwd" => "02041601009"],
+    ["num" => "02041601015", "pwd" => "02041601015"],
+    ["num" => "02041601024", "pwd" => "02041601024"],
+    ["num" => "02041601031", "pwd" => "02041601031"],
+    ["num" => "02041601040", "pwd" => "02041601040"],
+    ["num" => "02041601056", "pwd" => "02041601056"],
+    ["num" => "02041601057", "pwd" => "941028"],
 ];
 
 function plog($str)
@@ -67,9 +65,9 @@ class HttpClient
     public function get($url, $get, $show_head = false)
     {
 
-        if (!empty($get)) {
-            $url .= '?' . http_build_query($get);
-        }
+       if (!empty($get)) {
+           $url .= '?' . http_build_query($get);
+       }
 
         curl_setopt_array($this->ch, [
             CURLOPT_URL => $url,
@@ -136,8 +134,11 @@ foreach ($user_list as $user) {
 
     try {
         #0 获取新的SESSION ID
+        $client->set_cookie('');
         $result = $client->get('http://218.16.143.198:8008/suite/portal/portalView.do?siteKey=0&menuNavKey=0', [], true);
         preg_match("/JSESSIONID=([a-zA-Z0-9]+);\s/", $result, $match);
+        var_dump($match);
+
         if (empty($match[1])) {
             plog('获取SESSION ID失败');
             continue;
