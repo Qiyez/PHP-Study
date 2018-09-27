@@ -1,6 +1,6 @@
 <?php 
 class Book{
-	private $name = 'computer';
+	protected $name = 'computer';
 
 	public function setName($name){
 		$this->name = $name;
@@ -19,7 +19,7 @@ class LBook extends Book{
 
 $lbook = new LBook();
 $lbook->setName('德玛西亚');
-echo $lbook->getName();
+echo $lbook->getName().PHP_EOL;
 echo $lbook->getTName();
 
 

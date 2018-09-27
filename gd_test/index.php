@@ -19,8 +19,8 @@ $size_result_jpg = getSize($dst_img_jpg);
 
 
 
-echo "<img src=$source width='945' height='470'>原始png: $size<br>";
-echo "<img src=$dst_img width='945' height='470'>压缩后png: $size_result";
-echo "<img src=$dst_img_jpg width='945' height='470'>转换为jpg: $size_result_jpg";
+echo "<img src=$source >原始png: $size<br>";
+echo "<img src=$dst_img>压缩后png: $size_result";
+echo "<img src=$dst_img_jpg >转换为jpg: $size_result_jpg";
 
  ?>
