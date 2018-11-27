@@ -5,7 +5,7 @@ mysqli_set_charset($link, 'utf8');
 $str1="qwertyuiopasdfghjklzxcvbnm";
 $str2="QWERTYUIOPASDFGHJKLZXCVBNM1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890qwertyuiopasdfghjklzxcvbnm";
 
-for ($i=0; $i < 800000; $i++) { 
+for ($i=0; $i < 100000; $i++) { 
 	$cn = '';
 
 	$name = substr(str_shuffle($str1), 1, rand(6,12));
