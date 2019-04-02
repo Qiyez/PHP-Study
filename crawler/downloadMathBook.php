@@ -1,7 +1,7 @@
 <?php 
-
+$start_time = microtime(true);
 $ch = curl_init();
-$array = ['cz7s','cz7x'];
+$array = ['cz7x'];
 
 foreach ($array as $name) {
 	mkdir($name);
@@ -33,7 +33,7 @@ foreach ($array as $name) {
 		preg_match("/<h1[\s\w=\"]+>(.+)<span>/", $res, $match);
 		$title = preg_replace("/\//", "", $match[1]);
 
-		$img = file_get_contents('http://www.shuxue9.com/pep/'.$name.'/ebook/'.$pages.'.jpg');
+		@$img = file_get_contents('http://www.shuxue9.com/pep/'.$name.'/ebook/'.$pages.'.jpg');
 		if (!$img) {
 			break;
 		}
@@ -44,5 +44,6 @@ foreach ($array as $name) {
 }
 
 curl_close($ch);
-
+$end_time = microtime(true);
+echo PHP_EOL.($end_time-$start_time);
  ?> 
