@@ -4,6 +4,7 @@ $host = '127.0.0.1';
 $port = 11211;
 $mem = new Memcache();
 $mem->connect($host, $port);
+ $mem->add('v1','this is test',null,0);
 $items = $mem->getExtendedStats('items');
 $items = $items["$host:$port"]['items'];
 foreach ($items as $key => $values) {
