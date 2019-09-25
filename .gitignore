@@ -1,2 +1,3 @@
 ﻿# 忽略 phpstorm 生成文件
 /.idea
+/test/test.php
